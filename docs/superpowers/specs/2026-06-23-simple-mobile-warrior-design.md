@@ -20,6 +20,7 @@ Build a very small Godot mobile prototype for learning project structure. The ga
 - `scripts/main.gd` connects UI button presses to the warrior.
 - `scripts/warrior.gd` exposes `attack()` and `defend()` methods and runs tweens for simple animation.
 - `tests/test_project_structure.gd` is a headless smoke test that confirms the expected files and callable warrior API exist.
+- `tests/validate_project_structure.sh` is a local fallback smoke test for machines where the Godot CLI is not installed.
 
 ## Visual Design
 
@@ -44,5 +45,11 @@ godot --headless --script tests/test_project_structure.gd
 ```
 
 The test checks that the main scene, warrior scene, and warrior script are present and that the warrior instance exposes `attack` and `defend`.
+
+When the Godot CLI is not available, use the local fallback:
+
+```bash
+bash tests/validate_project_structure.sh
+```
 
 Manual visual verification is opening the project in Godot or running the main scene after the headless test passes.

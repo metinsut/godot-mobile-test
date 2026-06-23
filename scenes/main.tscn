@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/warrior.tscn" id="2_warrior"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Sky" type="Polygon2D" parent="."]
+color = Color(0.917647, 0.823529, 0.690196, 1)
+polygon = PackedVector2Array(0, 0, 720, 0, 720, 1280, 0, 1280)
+
+[node name="BackHill" type="Polygon2D" parent="."]
+color = Color(0.698039, 0.631373, 0.505882, 1)
+polygon = PackedVector2Array(0, 735, 150, 645, 330, 725, 515, 610, 720, 720, 720, 930, 0, 930)
+
+[node name="Ground" type="Polygon2D" parent="."]
+color = Color(0.345098, 0.384314, 0.294118, 1)
+polygon = PackedVector2Array(0, 820, 720, 800, 720, 1280, 0, 1280)
+
+[node name="Warrior" parent="." instance=ExtResource("2_warrior")]
+unique_name_in_owner = true
+position = Vector2(360, 572)
+scale = Vector2(1.72, 1.72)
+
+[node name="UiLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="UiLayer"]
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 680.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 36
+text = "Savasci"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomPanel" type="ColorRect" parent="UiLayer"]
+offset_left = 0.0
+offset_top = 1040.0
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.121569, 0.117647, 0.105882, 0.88)
+
+[node name="AttackButton" type="Button" parent="UiLayer"]
+unique_name_in_owner = true
+offset_left = 48.0
+offset_top = 1096.0
+offset_right = 332.0
+offset_bottom = 1216.0
+theme_override_font_sizes/font_size = 34
+text = "Saldir"
+
+[node name="DefendButton" type="Button" parent="UiLayer"]
+unique_name_in_owner = true
+offset_left = 388.0
+offset_top = 1096.0
+offset_right = 672.0
+offset_bottom = 1216.0
+theme_override_font_sizes/font_size = 34
+text = "Kalkan"
