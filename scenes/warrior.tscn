@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://pii2cnl2dre7"]
+
+[ext_resource type="Script" uid="uid://eexouq6ebm4n" path="res://scripts/warrior.gd" id="1_warrior"]
+
+[node name="Warrior" type="Node2D" unique_id=519004468]
+script = ExtResource("1_warrior")
+
+[node name="Shadow" type="Polygon2D" parent="." unique_id=499419484]
+position = Vector2(0, 118)
+scale = Vector2(1.35, 0.22)
+color = Color(0.129412, 0.0941176, 0.0784314, 0.2)
+polygon = PackedVector2Array(-44, -14, 44, -14, 58, 0, 44, 14, -44, 14, -58, 0)
+uv = PackedVector2Array(-44, -14, 44, -14, 58, 0, 44, 14, -44, 14, -58, 0)
+
+[node name="BackArm" type="Line2D" parent="." unique_id=57935775]
+points = PackedVector2Array(-26, 18, -64, 48)
+width = 15.0
+default_color = Color(0.501961, 0.329412, 0.211765, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ShieldArm" type="Node2D" parent="." unique_id=921479681]
+unique_name_in_owner = true
+position = Vector2(-32, 19)
+rotation = 0.41887903
+
+[node name="ShieldHandle" type="Line2D" parent="ShieldArm" unique_id=1895573555]
+points = PackedVector2Array(0, 0, -32, 29)
+width = 13.0
+default_color = Color(0.501961, 0.329412, 0.211765, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Shield" type="Polygon2D" parent="ShieldArm" unique_id=1037093161]
+unique_name_in_owner = true
+position = Vector2(-42, 38)
+color = Color(0.117647, 0.290196, 0.47451, 1)
+polygon = PackedVector2Array(-26, -34, 27, -34, 34, 3, 22, 43, 0, 58, -22, 43, -34, 3)
+uv = PackedVector2Array(-26, -34, 27, -34, 34, 3, 22, 43, 0, 58, -22, 43, -34, 3)
+
+[node name="ShieldRim" type="Line2D" parent="ShieldArm" unique_id=1342040843]
+position = Vector2(-42, 38)
+points = PackedVector2Array(-26, -34, 27, -34, 34, 3, 22, 43, 0, 58, -22, 43, -34, 3, -26, -34)
+width = 5.0
+default_color = Color(0.870588, 0.760784, 0.427451, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Body" type="Polygon2D" parent="." unique_id=1396188018]
+color = Color(0.643137, 0.160784, 0.14902, 1)
+polygon = PackedVector2Array(-34, -32, 34, -32, 45, 54, 23, 98, -23, 98, -45, 54)
+
+[node name="Belt" type="Line2D" parent="." unique_id=414206217]
+points = PackedVector2Array(-38, 45, 38, 45)
+default_color = Color(0.164706, 0.105882, 0.0784314, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="LeftBoot" type="Polygon2D" parent="." unique_id=434829846]
+position = Vector2(-20, 110)
+color = Color(0.109804, 0.109804, 0.117647, 1)
+polygon = PackedVector2Array(-17, -24, 5, -24, 12, 13, -22, 13)
+
+[node name="RightBoot" type="Polygon2D" parent="." unique_id=367133900]
+position = Vector2(20, 110)
+color = Color(0.109804, 0.109804, 0.117647, 1)
+polygon = PackedVector2Array(-5, -24, 17, -24, 22, 13, -12, 13)
+
+[node name="SwordArm" type="Node2D" parent="." unique_id=205435139]
+unique_name_in_owner = true
+position = Vector2(32, 16)
+rotation = -0.4886922
+
+[node name="SwordArmLine" type="Line2D" parent="SwordArm" unique_id=1337529247]
+points = PackedVector2Array(0, 0, 31, 27)
+width = 14.0
+default_color = Color(0.501961, 0.329412, 0.211765, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="SwordGrip" type="Line2D" parent="SwordArm" unique_id=196728984]
+points = PackedVector2Array(25, 21, 42, 38)
+width = 7.0
+default_color = Color(0.270588, 0.160784, 0.101961, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="SwordGuard" type="Line2D" parent="SwordArm" unique_id=1008613262]
+points = PackedVector2Array(26, 43, 47, 22)
+width = 6.0
+default_color = Color(0.870588, 0.760784, 0.427451, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="SwordBlade" type="Line2D" parent="SwordArm" unique_id=1698441478]
+points = PackedVector2Array(39, 35, 92, -18)
+default_color = Color(0.780392, 0.827451, 0.866667, 1)
+begin_cap_mode = 2
+end_cap_mode = 1
+
+[node name="Neck" type="Polygon2D" parent="." unique_id=440074408]
+position = Vector2(0, -39)
+color = Color(0.501961, 0.329412, 0.211765, 1)
+polygon = PackedVector2Array(-13, -4, 13, -4, 11, 17, -11, 17)
+
+[node name="Head" type="Polygon2D" parent="." unique_id=1916780572]
+position = Vector2(0, -68)
+color = Color(0.690196, 0.470588, 0.309804, 1)
+polygon = PackedVector2Array(-27, -21, 27, -21, 30, 14, 16, 33, -16, 33, -30, 14)
+
+[node name="Helmet" type="Polygon2D" parent="." unique_id=303451927]
+position = Vector2(0, -78)
+color = Color(0.388235, 0.427451, 0.466667, 1)
+polygon = PackedVector2Array(-34, -9, -18, -30, 18, -30, 34, -9, 27, 10, -27, 10)
+
+[node name="HelmetStripe" type="Line2D" parent="." unique_id=886878836]
+points = PackedVector2Array(0, -111, 0, -68)
+width = 5.0
+default_color = Color(0.870588, 0.760784, 0.427451, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="FaceSlot" type="Line2D" parent="." unique_id=195826193]
+points = PackedVector2Array(-19, -74, 19, -74)
+width = 5.0
+default_color = Color(0.0823529, 0.0901961, 0.105882, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
