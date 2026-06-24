@@ -14,6 +14,10 @@ func _init() -> void:
 		if not FileAccess.file_exists(path):
 			failures.append("Missing required file: %s" % path)
 
+	var main_scene_text := FileAccess.get_file_as_string("res://scenes/main.tscn")
+	if not main_scene_text.contains("Cloud"):
+		failures.append("Main scene must include Cloud")
+
 	var warrior_script := load("res://scripts/warrior.gd")
 	if warrior_script == null:
 		failures.append("Unable to load warrior script")
