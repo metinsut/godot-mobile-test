@@ -28,7 +28,36 @@ func _init() -> void:
 			failures.append("Warrior must expose attack()")
 		if not warrior.has_method("defend"):
 			failures.append("Warrior must expose defend()")
+		if not warrior.has_method("get_next_position"):
+			failures.append("Warrior must expose get_next_position()")
+		else:
+			var moved_position: Vector2 = warrior.get_next_position(Vector2(360, 572), Vector2.RIGHT, 0.5)
+			if not moved_position.is_equal_approx(Vector2(490, 572)):
+				failures.append("Warrior must move right according to movement speed")
+		if not warrior.has_method("get_screen_visual_bounds"):
+			failures.append("Warrior must expose get_screen_visual_bounds()")
+		else:
+			warrior.scale = Vector2(-1.72, 1.72)
+			var left_position: Vector2 = warrior.get_next_position(Vector2(360, 572), Vector2.LEFT, 10.0)
+			var left_bounds: Rect2 = warrior.get_screen_visual_bounds(left_position)
+			if not is_equal_approx(left_bounds.position.x, 0.0):
+				failures.append("Warrior visible left edge must stop at screen left")
+
+			warrior.scale = Vector2(1.72, 1.72)
+			var right_position: Vector2 = warrior.get_next_position(Vector2(360, 572), Vector2.RIGHT, 10.0)
+			var right_bounds: Rect2 = warrior.get_screen_visual_bounds(right_position)
+			if not is_equal_approx(right_bounds.end.x, 720.0):
+				failures.append("Warrior visible right edge must stop at screen right")
+
+			var down_position: Vector2 = warrior.get_next_position(Vector2(360, 572), Vector2.DOWN, 10.0)
+			var down_bounds: Rect2 = warrior.get_screen_visual_bounds(down_position)
+			if not is_equal_approx(down_bounds.end.y, 1040.0):
+				failures.append("Warrior visible bottom edge must stop above action buttons")
 		warrior.free()
+
+	for action in ["move_left", "move_right", "move_up", "move_down"]:
+		if not ProjectSettings.has_setting("input/%s" % action):
+			failures.append("Project must define input action: %s" % action)
 
 	if failures.is_empty():
 		print("Project structure smoke test passed.")
